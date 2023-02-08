@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Header from './Components/Header/Header';
 
 function App() {
   return (
     <div>
-      <p>Flashcard App.</p>
+      <Header/>
     </div>
   );
 }
