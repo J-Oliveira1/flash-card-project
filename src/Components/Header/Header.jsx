@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+
 
 const Header = ({ }) => {
     return (  
-        <h1>*img* FLashcard API</h1>
+        <h1>*img* Flashcard API</h1>
     );
 }
  
