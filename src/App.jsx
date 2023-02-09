@@ -6,7 +6,7 @@ import CollectionContainer from './Components/CollectionContainer/CollectionCont
 
 
 function App() {
-  const [questions, setQuestions] = useState([]);
+  const [collections, setCollections] = useState([]);
 
     useEffect(() => {
       getAllCollections();
@@ -14,7 +14,7 @@ function App() {
   
   async function getAllCollections() {
     const response = await axios.get('http://127.0.0.1:8000/api/collections/');
-    setQuestions(response.data);
+    setCollections(response.data);
     console.log(response.data);
   }
 
@@ -27,7 +27,7 @@ function App() {
   return (
     <div>
       <Header/>
-      <CollectionContainer questions={questions}/>
+      <CollectionContainer collections={collections}/>
     </div>
   );
 }

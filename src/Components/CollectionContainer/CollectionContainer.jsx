@@ -1,20 +1,13 @@
 import Collection from "../Collection/Collection";
 
-const CollectionContainer = ({ questions }) => {
-  const container = questions.map((question) => {
-    return <Collection question={question} />;
+const CollectionContainer = ({ collections }) => {
+  const collectionList = collections.map((collection) => {
+    return <Collection collection={collection} />;
   });
   return (
     <section>
       <h3>COLLECTIONS</h3>
-      <table>
-        <thead>
-          <tr>
-
-          </tr>
-        </thead>
-        <tbody>{container}</tbody>
-      </table>
+      <div>{collectionList}</div>
     </section>
   );
 };

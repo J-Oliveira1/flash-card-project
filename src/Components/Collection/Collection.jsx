@@ -1,7 +1,7 @@
-const Collection = ({ question }) => {
+const Collection = ({ collection }) => {
     return ( 
         <tr>
-            <td>{question.title}</td>
+            <td>{collection.title}</td>
         </tr>
      );
 };
