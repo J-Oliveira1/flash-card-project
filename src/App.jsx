@@ -3,7 +3,7 @@ import axios from 'axios';
 import Header from './Components/Header/Header';
 import CollectionContainer from './Components/CollectionContainer/CollectionContainer';
 import CardContainer from './Components/CardContainer/CardContainer';
-import { async } from 'q';
+
 
 
 
@@ -13,11 +13,10 @@ function App() {
 
     useEffect(() => {
       getAllCollections();
+      getAllCards(1);
     }, []);
 
-    useEffect(() => {
-      getAllCards();
-    }, []);
+
   
   async function getAllCollections() {
     const response = await axios.get('http://127.0.0.1:8000/api/collections/');
@@ -25,8 +24,8 @@ function App() {
     console.log(response.data);
   }
 
-  async function getAllCards() {
-    const response = await axios.get('http://127.0.0.1:8000/api/collections/1/cards/');
+  async function getAllCards(collectionId) {
+    const response = await axios.get(`http://127.0.0.1:8000/api/collections/${collectionId}/cards/`);
     setCards(response.data);
     console.log(response.data);
   }
@@ -39,7 +38,7 @@ function App() {
   return (
     <div>
       <Header/>
-      <CollectionContainer collections={collections}/>
+      <CollectionContainer collections={collections} getAllCards={getAllCards}/>
       <CardContainer cards={cards}/>
     </div>
   );

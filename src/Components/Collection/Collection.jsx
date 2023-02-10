@@ -1,8 +1,15 @@
-const Collection = ({ collection }) => {
+const Collection = ({ collection, getAllCards }) => {
+
+    function handleClick() {
+         getAllCards(collection.id);
+
+    }
+
     return ( 
-        <tr>
-            <td>{collection.title}</td>
-        </tr>
+        <div onClick={handleClick}>
+            {collection.title}
+            
+        </div>
      );
 };
  
