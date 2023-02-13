@@ -30,6 +30,13 @@ function App() {
     console.log(response.data);
   }
 
+  async function addingNewFlashcard(collectionId) {
+    const response = await axios.post(`http://127.0.0.1:8000/api/collections/${collectionId}/cards/`);
+    if(response.status === 201){
+      await getAllCards();
+    }
+  }
+
 
 
 
@@ -39,7 +46,7 @@ function App() {
     <div>
       <Header/>
       <CollectionContainer collections={collections} getAllCards={getAllCards}/>
-      <CardContainer cards={cards}/>
+      <CardContainer cards={cards} addingNewFlashcard={addingNewFlashcard}/>
     </div>
   );
 }
