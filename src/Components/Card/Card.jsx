@@ -1,10 +1,14 @@
+import React, { useState } from 'react';
+
+
+
 const Card = ({card}) => {
+    const [cardFlip, setCardFlip] = useState(false);
+
     return ( 
-        <tr>
-            <td>{card.word}</td>
-            <td>{card.definition}</td>
-            <td>{card.collection}</td>
-        </tr>
+        <div  onClick={() => setCardFlip(!cardFlip)}>
+            {cardFlip ? card.definition : card.word}
+        </div>
      );
 }
  
