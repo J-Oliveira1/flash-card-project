@@ -13,27 +13,27 @@ const CardContainer = ({cards, collectionId}) => {
 
 
     const handlePrevious = () => {
-        if (index === 0){
-            setIndex(cardList.lenght -1);
+        if (index > 0){
+            setIndex(index -1);
         }
         else {
-            setIndex(index - 1)
+            setIndex(cardList.length - 1)
         }
     }
 
     const handleNext = () => {
-        if (index ===  cardList.lenght - 1 ) {
-            setIndex(0);
+        if (index < cardList.lenght - 1 ) {
+            setIndex( index + 1);
         }
         else {
-            setIndex(index + 1);
+            setIndex(0);
         }
 
 
     }
     return ( 
         <section>
-            <div >{cardList[index]}</div>
+            <div > {cardList[index]}</div>
             <AddNewFlashcard />
             <div>
                 <div>{index+1}/{cardList.length}</div>

@@ -25,7 +25,7 @@ function App() {
   }
 
   async function getAllCards(collectionId) {
-    const response = await axios.get(`http://127.0.0.1:8000/api/collections/${collectionId}/cards/`);
+    const response = await axios.get(`http://127.0.0.1:8000/api/collections/${collectionId}/cards/`, );
     setCards(response.data);
     console.log(response.data);
   }
