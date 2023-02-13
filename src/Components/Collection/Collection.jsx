@@ -1,6 +1,6 @@
-const Collection = ({ collection, getAllCards }) => {
+const Collection = ({ collection, getAllCards, activeId, setActiveId}) => {
   function handleClick() {
-    getAllCards(collection.id);
+    setActiveId(collection.id);
   }
 
   return <div onClick={handleClick}>{collection.title}</div>;

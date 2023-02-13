@@ -1,10 +1,10 @@
 
 import { useState } from "react";
 import Card from "../Card/Card";
-import AddNewFlashcard from "../AddNewFlashcard/AddNewFlashcad";
+import AddNewFlashcard from "../AddNewFlashcard/AddNewFlashcard";
 
 
-const CardContainer = ({cards, collectionId}) => {
+const CardContainer = ({cards, activeId, getAllCards}) => {
     const [index, setIndex] = useState(0);
     const cardList = cards.map((card) => {
         return <Card card={card}/>;
@@ -22,11 +22,11 @@ const CardContainer = ({cards, collectionId}) => {
     }
 
     const handleNext = () => {
-        if (index < cardList.lenght - 1 ) {
+        if (index < cardList.length - 1 ) {
             setIndex( index + 1);
         }
         else {
-            setIndex(0);
+            setIndex(0)
         }
 
 
@@ -34,7 +34,7 @@ const CardContainer = ({cards, collectionId}) => {
     return ( 
         <section>
             <div > {cardList[index]}</div>
-            <AddNewFlashcard />
+            <AddNewFlashcard  activeId={activeId} getAllCards={getAllCards}/>
             <div>
                 <div>{index+1}/{cardList.length}</div>
                 <button onClick={handlePrevious}>Previous</button>
