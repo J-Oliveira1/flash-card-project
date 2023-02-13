@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const AddNewFlashcard = ({activeId, getAllCards}) => {
+const AddNewFlashcard = ({ activeId, getAllCards }) => {
   const [definition, setDefinition] = useState("");
   const [word, setWord] = useState("");
 
@@ -11,7 +11,7 @@ const AddNewFlashcard = ({activeId, getAllCards}) => {
       newCard
     );
     if (response.status === 201) {
-        await getAllCards();
+      await getAllCards();
     }
   }
 
@@ -27,19 +27,25 @@ const AddNewFlashcard = ({activeId, getAllCards}) => {
     setWord("");
   }
   return (
-    <form onSubmit={handlesubmit}>
-      <label>Enter title....</label>
-      <input
-        type="text"
-        value={word}
-        onChange={(event) => setWord(event.target.value)}
-      />
-      <label>Enter definition....</label>
-      <input
-        type="text"
-        value={definition}
-        onChange={(event) => setDefinition(event.target.value)}
-      />
+    <form onSubmit={handlesubmit} >
+      <h3>Add Card</h3>
+
+      <div>
+        <label>Enter title....</label>
+        <input
+          type="text"
+          value={word}
+          onChange={(event) => setWord(event.target.value)}
+        />
+      </div>
+      <div>
+        <label>Enter definition....</label>
+        <input
+          type="text"
+          value={definition}
+          onChange={(event) => setDefinition(event.target.value)}
+        />
+      </div>
       <button type="submit">Save</button>
     </form>
   );
