@@ -22,10 +22,11 @@ const CollectionContainer = ({
     event.preventDefault();
   }
   return (
-    <section onSubmit={handlesubmit}>
-      <h3>COLLECTIONS</h3>
+    <aside onSubmit={handlesubmit}
+    style={{ width: "200px", height: "100vh", backgroundColor: "#4e5465", color: "white", padding: "20px" }}>
+      <h4>COLLECTIONS</h4>
       <div>{collectionList}</div>
-    </section>
+    </aside>
   );
 };
 

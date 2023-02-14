@@ -1,12 +1,14 @@
 import { useState } from "react";
 import Card from "../Card/Card";
 import AddNewFlashcard from "../AddNewFlashcard/AddNewFlashcard";
+import axios from "axios";
 
-const CardContainer = ({ cards, activeId, getAllCards }) => {
+const CardContainer = ({ cards, activeId, getAllCards, id }) => {
   const [index, setIndex] = useState(0);
-  const cardList = cards.map((card) => {
+  const [newCardList, setNewCardList] = useState(0);
+  const cardList = (cards.map((card) => {
     return <Card card={card} />;
-  });
+  }));
 
   const handlePrevious = () => {
     if (index > 0) {
@@ -23,11 +25,21 @@ const CardContainer = ({ cards, activeId, getAllCards }) => {
       setIndex(0);
     }
   };
+
+  const handleDelete = async () => {
+    try {
+      await axios.delete(`http://127.0.0.1:8000/api/collections/${activeId}/cards/${id}`);
+      setNewCardList(cardList.filter((card) => card.props.card.id !== id));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
   return (
     <section>
       <div> {cardList[index]}</div>
       <div>
-
       </div>
       <div>
         <div>
@@ -36,6 +48,7 @@ const CardContainer = ({ cards, activeId, getAllCards }) => {
         <button onClick={handlePrevious}>Previous</button>
         <button onClick={handleNext}>Next</button>
       <AddNewFlashcard activeId={activeId} getAllCards={getAllCards} />
+        <button onClick={() => handleDelete(cards.id)}>Delete</button>
       </div>
     </section>
   );

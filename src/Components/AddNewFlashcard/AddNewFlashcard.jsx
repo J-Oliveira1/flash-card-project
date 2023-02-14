@@ -27,9 +27,8 @@ const AddNewFlashcard = ({ activeId, getAllCards }) => {
     setWord("");
   }
   return (
-    <form onSubmit={handlesubmit} >
-      <h3>Add Card</h3>
-
+    <form onSubmit={handlesubmit}>
+      <h4>Add Card</h4>
       <div>
         <label>Enter title....</label>
         <input

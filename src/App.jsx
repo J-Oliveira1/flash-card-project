@@ -32,14 +32,21 @@ function App() {
   }
 
   return (
-    <div>
+    <div  >
       <Header />
+      <div style={{ display: "flex", height: "100vh",  }}>
       <CollectionContainer
         collections={collections}
         getAllCards={getAllCards}
         setActiveId={setActiveId}
-      />
-      <CardContainer cards={cards} activeId={activeId} getAllCards={getAllCards}/>
+        style={{ width: "20%", }}/>
+      <CardContainer
+        cards={cards}
+        activeId={activeId}
+        getAllCards={getAllCards}
+        style={{ width: "80%" }}/>
+
+        </div>
     </div>
   );
 }
