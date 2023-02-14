@@ -27,17 +27,26 @@ const AddNewFlashcard = ({ activeId, getAllCards }) => {
     setWord("");
   }
   return (
-    <form onSubmit={handlesubmit}>
+    <form className=""onSubmit={handlesubmit}>
       <h4>Add Card</h4>
-      <div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "200px",
+          border: "5px solid #907078",
+          padding: "12px 84px",
+          margin: "0px 0",
+        }}
+      >
         <label>Enter title....</label>
         <input
           type="text"
           value={word}
           onChange={(event) => setWord(event.target.value)}
         />
-      </div>
-      <div>
         <label>Enter definition....</label>
         <input
           type="text"
